@@ -13,7 +13,7 @@ import javax.swing.border.Border;
 public class TitlePanel extends JPanel{
 	private static final long serialVersionUID = 1L;
 //	コンポーネント
-	JLabel title;
+	JLabel titleLabel;
 	JLabel start;
 	JLabel exit;
 	JLabel select;
@@ -40,15 +40,15 @@ public class TitlePanel extends JPanel{
 //	コンストラクタが呼ばれた後手動で呼び出す
 	public void prepareComponents() {
 		// タイトルロゴ
-		title = new JLabel();
+		JLabel title = new JLabel();
 //		ImageIcon titleLogo = new ImageIcon(getClass().getClassLoader.getResource("title.png")); //600x300の画像を想定
 //		title.setIcon(titleLogo);
 		title.setHorizontalAlignment(SwingConstants.CENTER);
 		title.setVerticalAlignment(SwingConstants.BOTTOM);
-		title.setText("Created by koh");
+		titleLabel.setText("Created by koh");
 		title.setHorizontalTextPosition(JLabel.CENTER);
 		title.setVerticalTextPosition(SwingConstants.BOTTOM);
-		title.setBounds(90, 0, 600, 350);
+		titleLabel.setBounds(90, 0, 600, 350);
 		this.setBorder(border);
 		
 		//選択肢

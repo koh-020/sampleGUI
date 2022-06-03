@@ -2,8 +2,6 @@ package sampleJFrame;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
@@ -13,7 +11,7 @@ import javax.swing.border.Border;
 public class TitlePanel extends JPanel{
 	private static final long serialVersionUID = 1L;
 //	コンポーネント
-	JLabel title;
+	JLabel titleLabel;
 	JLabel start;
 	JLabel exit;
 	JLabel select;
@@ -45,10 +43,10 @@ public class TitlePanel extends JPanel{
 //		title.setIcon(titleLogo);
 		title.setHorizontalAlignment(SwingConstants.CENTER);
 		title.setVerticalAlignment(SwingConstants.BOTTOM);
-		title.setText("Created by koh");
+		titleLabel.setText("Created by koh");
 		title.setHorizontalTextPosition(JLabel.CENTER);
-		title.setVerticalTextPosition(SwingConstants.BOTTOM);
-		title.setBounds(90, 0, 600, 350);
+		title.VerticalTextPosition(SwingConstants.BOTTOM);
+		titleLabel.setBounds(90, 0, 600, 350);
 		this.setBorder(border);
 		
 		//選択肢
@@ -70,7 +68,7 @@ public class TitlePanel extends JPanel{
 	
 		
 //	　選択用アイコン
-		select  = new JLabel();
+		select  = new JPanel();
 		select.setBackground(Color.blue);
 		select.setOpaque(true);
 		select.setBounds(280, 400, 40, 40);
@@ -84,67 +82,5 @@ public class TitlePanel extends JPanel{
 		message.setHorizontalTextPosition(JLabel.CENTER);
 		message.setBounds(249, 517, 300, 30);
 		message.setBorder(border);
-		
-//		配置
-		this.setLayout(null);
-		this.add(title);
-		this.add(start);
-		this.add(exit);
-		this.add(select);
-		this.add(message);
-		
-//		リスナーの設定
-		myKeyListener = new MyKeyListener(this);
-	}
-	
-//	内部クラス（選択の制御）
-	private class MyKeyListener implements KeyListener {
-		
-		//貼り付け先を保持
-		TitlePanel panel;
-		
-		//コンストラクタ
-		MyKeyListener(TitlePanel p) {
-			super();
-			panel = p;
-			panel.addKeyListener(this);
-		}
-		
-		@Override
-		public void keyTyped(KeyEvent e) {
-			//do nothing
-		}
-		
-		@Override
-		public void keyReleased(KeyEvent e) {
-			//do nothing
-		}
-		
-		@Override
-		public void keyPressed(KeyEvent e) {
-			switch(e.getKeyCode()) {
-				case KeyEvent.VK_DOWN:
-					if (checkMenu == Menu.START) {
-						select.setLocation(select.getX(), select.getY()+50);
-						checkMenu = Menu.EXIT;
-					}
-					break;
-				case KeyEvent.VK_UP:
-					if (checkMenu == Menu.EXIT) {
-						select.setLocation(select.getX(), select.getY()-50);
-						checkMenu = Menu.START;
-					}
-					break;
-				case KeyEvent.VK_SPACE:
-					if (checkMenu == Menu.START) {
-						//開始
-						Main.mainWindow.setFrontScreenAndFocus(ScreenMode.GAME);
-					} else if(checkMenu == Menu.EXIT) {
-						//終了
-						System.exit(0);
-					}
-					break;
-			}
-		}
 	}
 }
