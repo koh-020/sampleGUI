@@ -1,0 +1,93 @@
+package sample02;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+public class ClioneLabel extends JLabel{
+	private static final long serialVersionUID = 1L;
+	
+//	フィールド
+	Image clioneImage;
+	
+//	コンストラクタ
+	ClioneLabel() {
+//		ClioneImage = new ImageIcon(getClass().getClassLoader().getResource("fish_clione.png"));
+		ClioneImage = new ImageIcon("fish_clione.png");
+		this.setBounds(100, 100, clioneImage.getWidth(null), clioneImage.getHeight(null));
+	}
+	public void paint(Graphics g) {
+		super.paint(g);
+//		クリオネの画像を使う
+		Graphics2D g2D = (Graphics2D) g;
+		g2D.drawImage(clioneImage, 0, 0, clioneImage.getWidth(null), clioneImage.getHeight(null), null);
+	}
+	
+//	内部クラス（クリオネの動きを制御する）
+	private class MyKeyListener implements KeyListener {
+		
+//		貼り付け先を保持
+		MainPanel panel;
+		
+//		コンストラクタ
+		MyKeyListener(MainPanel p) {
+			super();
+			panel = p;
+			p.addKeyListener(this);
+		}
+		
+		
+		@Override
+		public void keyTyped(KeyEvent e) {
+			// do nothing
+		}
+		
+		@Override
+		public void keyReleased(KeyEvent e) {
+			// do nothing
+		}
+		
+		@Override
+		public void keyPressed(KeyEvent e) {
+			switch(e.getKeyCode()) {
+				case KeyEvent.VK_UP: //上を押した場合
+					if (clioneLabel.getY() > 0) {
+						clioneLabel.setLocation(clioneLabel.getX(), clioneLabel.getY()-5);
+					}
+					break;
+				case KeyEvent.VK_DOWN: //下を押した場合
+					if (ClioneLabel.getY() + clioneLabel.clioneImage.getHeight(null) < panel.getHeight()) {
+						clioneLabel.setLocation(clioneLabel.getX(), clioneLabel.getY()+5);
+					}
+					break;
+				case KeyEvent.VK_LEFT: //左を押した場合
+					if (clioneLabel.getX() > 0) {
+						clioneLabel.setLocation(clioneLabel.getX()-5, clioneLabel.getY());
+					}
+					break;
+				case KeyEvent.VK_RIGHT: //⇒が押された場合
+					if (clioneLabel.getX() + clioneLabel.clioneImage.getWidth(null) < panel.getWidth()) {
+						clioneLabel.setLocation(clioneLabel.getX()+5, clioneLabel.getY());
+					}
+					break;
+				case KeyEvent.VK_ENTER: //Enterを押した場合
+					if (backgroundColor == Color.green) {
+						backgroundColor = Color.blue;
+						panel.setBackground(backgroundColor);
+					} else if (backgroundColor == Color.blue) {
+						backgroundColor = Color.green;
+						panel.setBockground(backgroundColor);
+					}
+					break;
+			}
+		}
+		
+	}
+	
+}
