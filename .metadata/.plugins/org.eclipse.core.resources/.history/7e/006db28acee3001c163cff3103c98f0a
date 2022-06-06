@@ -1,0 +1,9 @@
+package sampleJFrame;
+
+public class MenuBar extends JPanel{
+	private static final long serialVersionUID = 1L;
+	//コンポーネント
+	JButton HomeButton;
+	JLabel HomeLabel;
+	HomeButtonListener homeButtonListener;
+}

@@ -1582,3 +1582,63 @@ java.lang.InterruptedException
 	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
 	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
 	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY mergedoc.encoding 2 0 2022-06-04 13:49:30.664
+!MESSAGE リソース '/sampleGUI/src/sample03_2/SreenMode.java' が存在しません。
+
+!ENTRY mergedoc.encoding 2 0 2022-06-04 13:49:30.667
+!MESSAGE リソース '/sampleGUI/src/sample03_2/SreenMode.java' が存在しません。
+
+!ENTRY mergedoc.encoding 2 0 2022-06-04 13:49:30.707
+!MESSAGE リソース '/sampleGUI/src/sample03_2/SreenMode.java' が存在しません。
+
+!ENTRY mergedoc.encoding 2 0 2022-06-04 13:49:30.711
+!MESSAGE リソース '/sampleGUI/src/sample03_2/SreenMode.java' が存在しません。
+
+!ENTRY mergedoc.encoding 2 0 2022-06-04 13:49:30.715
+!MESSAGE リソース '/sampleGUI/src/sample03_2/SreenMode.java' が存在しません。
+
+!ENTRY mergedoc.encoding 2 0 2022-06-04 13:49:30.720
+!MESSAGE リソース '/sampleGUI/src/sample03_2/SreenMode.java' が存在しません。
+
+!ENTRY mergedoc.encoding 2 0 2022-06-04 13:49:30.723
+!MESSAGE リソース '/sampleGUI/src/sample03_2/SreenMode.java' が存在しません。
+
+!ENTRY mergedoc.encoding 2 0 2022-06-04 13:49:30.725
+!MESSAGE リソース '/sampleGUI/src/sample03_2/SreenMode.java' が存在しません。
+
+!ENTRY mergedoc.encoding 2 0 2022-06-04 13:49:30.729
+!MESSAGE リソース '/sampleGUI/src/sample03_2/SreenMode.java' が存在しません。
+
+!ENTRY mergedoc.encoding 2 0 2022-06-04 13:49:30.731
+!MESSAGE リソース '/sampleGUI/src/sample03_2/SreenMode.java' が存在しません。
+
+!ENTRY mergedoc.encoding 2 0 2022-06-04 13:49:30.766
+!MESSAGE リソース '/sampleGUI/src/sample03_2/SreenMode.java' が存在しません。
+
+!ENTRY mergedoc.encoding 2 0 2022-06-04 13:49:30.768
+!MESSAGE リソース '/sampleGUI/src/sample03_2/SreenMode.java' が存在しません。
+
+!ENTRY org.eclipse.lsp4e 2 0 2022-06-04 15:02:20.531
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:70)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.lsp4e 2 0 2022-06-04 16:04:03.212
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:70)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)

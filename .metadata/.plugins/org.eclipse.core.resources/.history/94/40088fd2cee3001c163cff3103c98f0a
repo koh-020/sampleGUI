@@ -1,0 +1,24 @@
+package sampleJFrame;
+
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class MenuBar extends JPanel{
+	private static final long serialVersionUID = 1L;
+	//コンポーネント
+	JButton HomeButton;
+	JLabel HomeLabel;
+	HomeButtonListener homeButtonListener;
+	
+	//コンストラクタ
+	public MenuBar() {
+		this.setPrefeeredSize(new Dimension(100, 400));
+		this.setBackground(Color.red);
+		this.setLayout(null);
+	}
+	
+}

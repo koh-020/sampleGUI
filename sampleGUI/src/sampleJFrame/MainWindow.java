@@ -28,7 +28,7 @@ public class MainWindow  extends JFrame{
 //		ウィンドウ左下のアイコンとタイトル
 		this.setTitle("sampleGUI");
 //		ImageIcon icon = new ImageIcon(getClass().getClassLoader().getResource("nikukyu.png"));
-		ImageIcon icon = new ImageIcon("./images/nikukyu.png");
+		ImageIcon icon = new ImageIcon(getClass().getClassLoader().getResource("./images/nikukyu.png"));
 		this.setIconImage(icon.getImage());
 		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);						//ウィンドウのXを押すとプログラムを終了させる(デフォルトのままでは非表示になるだけ)
