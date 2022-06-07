@@ -1,0 +1,14 @@
+package sample05;
+
+import java.awt.Image;
+
+import javax.swing.JLabel;
+
+public class CatLabel extends JLabel {
+	private static final long serialVersionUID = 1L;
+	 // フィールド
+	Image catImage;
+	int x;
+	int y;
+	
+}

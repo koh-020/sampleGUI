@@ -1,4 +1,4 @@
-package template;
+package sample05;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -11,8 +11,8 @@ public class MainWindow extends JFrame {
 	//フィールド
 	ScreenMode screenMode = ScreenMode.MAIN;
 	//定数
-	final int WIDTH = 400;
-	final int HEIGHT = 400;
+	final int WIDTH = 800;
+	final int HEIGHT = 800;
 	//レイアウト
 	CardLayout layout = new CardLayout();
 	//コンポーネント
@@ -22,7 +22,7 @@ public class MainWindow extends JFrame {
 	MainWindow() {
 		//ウィンドウ左上のアイコンとタイトル
 		this.setTitle("タイトルを設定");
-		ImageIcon icon = new ImageIcon(getClass().getClassLoader().getResource("./images/nikukyu.png"));
+		ImageIcon icon = new 									ImageIcon(getClass().getClassLoader().getResource("nikukyu.png"));
 		this.setIconImage(icon.getImage());
 
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
