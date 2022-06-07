@@ -1,0 +1,39 @@
+package sampleJFrame;
+
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class MenuBar_2 extends JPanel{
+	private static long serialVersionUID = 1L;
+	//コンポーネント
+	JButton homeButton;
+	JLabel homeLabel;
+	HomeButtonListener homeButtonListener;
+	
+	//コンストラクタ
+	public MenuBar_2() {
+		this.setPreferredSize(new Dimension(100, 40));
+		this.setBackground(Color.red);
+		this.setLayout(null);
+	}
+	
+	//コンストラクタが呼ばれた後手動で呼び出す
+	public void prepareComponents() {
+		homeButton = new JButton();
+		homeButton.setBounds(5,5,80, 30);
+		homeButton.setText("HOME");
+		homeButton.setFocusable(false);
+		homeButtonListener = new HomeButtonListener();
+		homeBtton.addActionListener(homeButtonListener);
+	//ラベル
+		homeLabel = new JLabel("←click this button or press 'h' to home");
+		homeLabel.setBounds(100, 5, 250, 30);
+		homeLabel.setBorder(BorderFactory.createEtchedBorder(3, Color.black, Color.white));
+	
+	}
+}

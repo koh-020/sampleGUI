@@ -22,19 +22,24 @@ public class GamePanel extends JPanel{
 //	コンストラクタ
 	public GamePanel() {
 //		パネルサイズと貼り付け位置の設定は不要
-		this.setLayout(null); //レイアウトの設定
+		this.setLayout(layout); //レイアウトの設定
 		this.setBackground(Color.yellow); //背景色
 		//パネル生成と設置
 		menuBar = new MenuBar();
+//		menuBar.setLayout(null);
 		fieldPanel = new FieldPanel();
+//		fieldPanel.setLayout(null);
 		this.add(menuBar, BorderLayout.NORTH);
 		this.add(fieldPanel, BorderLayout.CENTER);
+
 	}
 	
 //	コンストラクタが呼ばれた後手動で呼び出す
 	public void prepareComponents() {
 		menuBar.prepareComponents();
 		fieldPanel.prepareComponents();
+
+
 		//リスナーを設置
 		myKeyListener = new MyKeyListener(this);
 	}

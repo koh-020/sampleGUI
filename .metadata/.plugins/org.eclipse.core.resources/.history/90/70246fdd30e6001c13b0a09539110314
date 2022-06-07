@@ -1,0 +1,26 @@
+package sample04;
+
+import java.awt.Image;
+
+import javax.swing.JLabel;
+import javax.swing.Timer;
+
+public class CatLabel extends JLabel{
+	private static final long serialVersionUID = 1L;
+	//フィールド
+	Image catImage;
+	int x;
+	int y;
+	int xVelocity;
+	int yVelocity;
+	Timer timer = null;
+	
+	//コンストラクタ
+	//画像設定
+	catImage = new ImageIcon(getClass().getClassLoader().getResource("./images/cat_fish_run.png")).getImage();
+	//ラベルのサイズを設定
+	this.setSize(catImage.getWidth(null), catImage.getHeight(null));
+	//初期設定の座標と速さを決定
+	x = new Random().nextInt(Main.mainWindow.mainPanel.getWidth() - this.getWidth());
+	
+}

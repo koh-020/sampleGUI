@@ -5,7 +5,6 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,7 +19,7 @@ public class MenuBar extends JPanel{
 	//コンストラクタ
 	public MenuBar() {
 		//パネルサイズと貼り付け位置の設定は不要（BorderLayoutが自動で画面サイズに合わせてくれる）
-		this.setPreferredSize(new Dimension(100, 400)); //幅は自動調整されるがこの命令は必要
+		this.setPreferredSize(new Dimension(100, 40)); //幅は自動調整されるがこの命令は必要
 		this.setBackground(Color.red);
 		this.setLayout(null);
 	}
@@ -32,14 +31,14 @@ public class MenuBar extends JPanel{
 		homeButton = new JButton();
 		homeButton.setBounds(5, 5, 80, 30);
 		homeButton.setText("HOME");
-		homeButton.setFocusable(false);
+//		homeButton.setFocusable(false);
 		homeButtonListener = new HomeButtonListener();
 		homeButton.addActionListener(homeButtonListener);
 		
 		//ラベル
 		homeLabel = new JLabel("←click this button or press 'h' to home");
 		homeLabel.setBounds(100, 5, 250, 30);
-		homeLabel.setBorder(BorderFactory.createEtchedBorder(3, Color.black, Color.white));
+//		homeLabel.setBorder(BorderFactory.createEtchedBorder(3, Color.black, Color.white));
 		
 		//設置
 		this.add(homeButton);
