@@ -55,7 +55,6 @@ public class FieldPanel extends JPanel {
 		this.layeredPane.add(catPot, JLayeredPane.DEFAULT_LAYER);
 		this.layeredPane.add(cat01, 500);
 		this.layeredPane.add(cat02, 400);
-		this.layeredPane.moveToBack(catPot);
 	}
 
 //	ネコにリスナーをつけてからパネルにはるメソッド
