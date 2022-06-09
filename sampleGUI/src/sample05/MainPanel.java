@@ -55,13 +55,14 @@ public class MainPanel extends JPanel {
 		}
 		
 		public void mousePressed(MouseEvent e) {
-			//抑えたところからラベルの左上の差を取っておく
+			//抑えたところからラベルの左上の差を取っておく(ドラッグ開始点)
+			
 			dx = e.getXOnScreen() - cat.getX();
 			dy = e.getYOnScreen() - cat.getY();
 		}
 		
 		public void mouseDragged(MouseEvent e) {
-			//マウスの座標からラベルの左上の座標を取得する
+			//マウスの座標からラベルの左上の座標を取得する(ドラッグ終了点)
 			int x = e.getXOnScreen() - dx;
 			int y = e.getYOnScreen() - dy;
 			if(x < Main.mainWindow.mainPanel.getWidth() - cat.getWidth()-5 && x > 5) {

@@ -1,0 +1,16 @@
+package sampleJFrame;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+public class CatPot extends JLabel{
+	private static final long serialVersionUID = 1L;
+	//フィールド
+	ImageIcon image;
+	
+	//コンストラクタ
+	public CatPot() {
+		image = new ImageIcon(getClass().getClassLoader().getResource("./images/cup.pmg")).getImage();
+		
+	}
+}

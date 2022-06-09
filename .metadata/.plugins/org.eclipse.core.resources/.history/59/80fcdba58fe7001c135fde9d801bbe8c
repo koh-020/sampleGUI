@@ -1,0 +1,14 @@
+package sampleJFrame;
+
+import javax.swing.ImageIcon;
+
+public class Cat_Rare {
+
+	//設定
+	protected void prepareImageAndScoreAndVoice() {
+		super.image = new ImageIcon(getClass().getClassLoader().getResource("./images/kotowaza_neko_koban.png")).getImage();
+		super.score = 100;
+		super.voiceKey = "暴走";
+		super.escapeTime = 150;
+	};
+}

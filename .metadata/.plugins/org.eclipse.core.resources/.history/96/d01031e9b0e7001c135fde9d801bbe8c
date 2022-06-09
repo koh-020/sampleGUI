@@ -1,0 +1,27 @@
+package sampleJFrame;
+
+import java.awt.Image;
+import java.awt.MediaTracker;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+public class CatPot extends JLabel{
+	private static final long serialVersionUID = 1L;
+	//フィールド
+	ImageIcon image;
+	
+	//コンストラクタ
+	public CatPot() {
+		image = new ImageIcon(getClass().getClassLoader().getResource("./images/cup.png"));
+		MediaTracker tracker = new MediaTracker(this);
+		Image smallCupImage = image.getImage().getScaledInstance((int) (image.getIconWidth() * 0.5), -1, Image.SCALE_SMOOTH);
+		
+		this.setSize(150, 150);
+		this.setIcon(image);
+		this.setText("DROP HERE↓");
+		this.setHorizontalTextPosition(CENTER);
+		this.setVerticalTextPosition(TOP);
+		
+	}
+}

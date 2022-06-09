@@ -1,0 +1,14 @@
+package sampleJFrame;
+
+import javax.swing.ImageIcon;
+
+public class Cat_UltraRea extends Animal{
+
+	//設定
+	protected void prepareImageAndScoreAndVoice() {
+		super.image = new ImageIcon(getClass().getClassLoader().getResource("./images/jitensya_neko.png")).getImage();
+		super.score = 300;
+		super.voiceKey = "暴走";
+		super.escapeTime = 150;
+	};
+}
