@@ -2,8 +2,6 @@ package sampleJFrame;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -19,6 +17,7 @@ public class GamePanel extends JPanel {
 	// フィールド
 	int timeLeft;
 	Timer timer;
+	MyActionListener myActionListener;
 
 //	コンポーネント
 	MenuBar menuBar;
@@ -53,9 +52,7 @@ public class GamePanel extends JPanel {
 	
 	//タイマースタート
 	public void timerStart() {
-		timeLeft = 600;
-		timer = new Timer(60, taskPerformer);
-		timer.start();
+		limitTime = new Timer(5, myKeyListener);
 	}
 
 	// 内部クラス(hが押されたらタイトルへ)
@@ -101,15 +98,11 @@ public class GamePanel extends JPanel {
 //	});
 //	timer.start();
 //	
-	
-	//タイマー用リスナー
+	//内部クラス（タイマー用）
 	ActionListener taskPerformer = new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			if(timeLeft == 0) {
-				timer.stop();
-				Main.mainWindow.setFrontScreenAndFocus(ScreenMode.TITLE);
-			}
-			timeLeft--;
+			this.timer.start();
+			//..Performe a task
 		}
 	};
 }

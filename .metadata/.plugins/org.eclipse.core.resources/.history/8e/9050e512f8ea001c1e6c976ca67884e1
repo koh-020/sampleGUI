@@ -37,7 +37,7 @@ public class MenuBar extends JPanel{
 		
 		//ラベル
 		homeLabel = new JLabel("←click this button or press 'h' to home" + "残り時間：" + Main.mainWindow.gamePanel.timeLeft	);
-		homeLabel.setBounds(100, 5, 500, 30);
+		homeLabel.setBounds(100, 5, 250, 30);
 //		homeLabel.setBorder(BorderFactory.createEtchedBorder(3, Color.black, Color.white));
 		
 		//設置

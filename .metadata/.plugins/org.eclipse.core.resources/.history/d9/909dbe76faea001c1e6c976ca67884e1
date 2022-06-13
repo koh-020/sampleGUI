@@ -53,8 +53,8 @@ public class GamePanel extends JPanel {
 	
 	//タイマースタート
 	public void timerStart() {
-		timeLeft = 600;
-		timer = new Timer(60, taskPerformer);
+		timeLeft = 3000;
+		timer = new Timer(1, taskPerformer);
 		timer.start();
 	}
 
@@ -105,11 +105,11 @@ public class GamePanel extends JPanel {
 	//タイマー用リスナー
 	ActionListener taskPerformer = new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			if(timeLeft == 0) {
+			if(timeLeft == 6000) {
 				timer.stop();
 				Main.mainWindow.setFrontScreenAndFocus(ScreenMode.TITLE);
 			}
-			timeLeft--;
+			timeLeft++;
 		}
 	};
 }

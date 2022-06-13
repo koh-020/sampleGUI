@@ -19,6 +19,7 @@ public class GamePanel extends JPanel {
 	// フィールド
 	int timeLeft;
 	Timer timer;
+	MyActionListener myActionListener;
 
 //	コンポーネント
 	MenuBar menuBar;
@@ -53,8 +54,7 @@ public class GamePanel extends JPanel {
 	
 	//タイマースタート
 	public void timerStart() {
-		timeLeft = 600;
-		timer = new Timer(60, taskPerformer);
+		timer = new Timer(5, taskPerformer);
 		timer.start();
 	}
 
@@ -101,8 +101,7 @@ public class GamePanel extends JPanel {
 //	});
 //	timer.start();
 //	
-	
-	//タイマー用リスナー
+	//内部クラス（タイマー用）
 	ActionListener taskPerformer = new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			if(timeLeft == 0) {
