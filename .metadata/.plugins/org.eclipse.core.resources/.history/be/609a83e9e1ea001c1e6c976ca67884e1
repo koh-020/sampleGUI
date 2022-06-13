@@ -1,0 +1,62 @@
+package sample07;
+import java.awt.Color;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.Timer;
+
+public class MainPanel extends JPanel {
+	private static final long serialVersionUID = 1L;
+
+	//定数フィールド
+	Color backgroundColor = Color.green;
+	final int MAXHP = 243;
+	final int DAMAGE = 43;
+	//コンポーネント
+	JPanel hpPanel;
+	JPanel mainPanel;
+	JPanel buttonPanel;
+	
+	JLabel mainLabel;
+	ImageIcon herIicon;
+	ImageIcon icon02;
+	ImageIcon icon03;
+	ImageIcon icon04;
+	
+	JButton button;
+	JLabel label;
+	MyProgressBar hpBar;
+	Timer checkHPcondition;
+	
+	//リスナー
+	MyActionListener myActionListener; //ボタンと現在HPの監視
+	
+	
+	
+	
+
+	//コンストラクタ
+	MainPanel() {
+		//パネルサイズと貼り付け位置の設定は不要
+		this.setLayout(null);  //レイアウトの設定
+		this.setBackground(backgroundColor);  //背景の色
+		//　その他追加設定をここに追記
+	}
+	
+	//メソッド
+	public void prepareComponents() {
+		//以下コンポーネントに関する命令（以下は一例）
+		mainLabel = new JLabel();      //ラベル生成
+		mainLabel.setText("メイン画面");  //ラベルに文字を記入
+		mainLabel.setBounds(100, 200, 100, 30);  //位置とサイズを指定
+		this.add(mainLabel);  //ラベルをこのパネルに貼る
+	}
+	
+	//内部クラス（ボタンを監視）
+	private class MyActionListener implements ActionListener {
+		
+	}
+}

@@ -11,8 +11,8 @@ public class MainWindow extends JFrame {
 	//フィールド
 	ScreenMode screenMode = ScreenMode.MAIN;
 	//定数
-	final int WIDTH = 400;
-	final int HEIGHT = 400;
+	final int WIDTH = 600;
+	final int HEIGHT = 600;
 	//レイアウト
 	CardLayout layout = new CardLayout();
 	//コンポーネント
