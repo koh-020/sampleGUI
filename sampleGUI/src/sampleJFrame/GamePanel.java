@@ -17,8 +17,10 @@ public class GamePanel extends JPanel {
 	BorderLayout layout = new BorderLayout();
 
 	// フィールド
-	int timeLeft;
+	int timeMax = 6000;
+	int timeLeft = timeMax;
 	Timer timer;
+	int score = 0;
 
 //	コンポーネント
 	MenuBar menuBar;
@@ -44,7 +46,7 @@ public class GamePanel extends JPanel {
 
 //	コンストラクタが呼ばれた後手動で呼び出す
 	public void prepareComponents() {
-		menuBar.prepareComponents();
+		menuBar.prepareComponents(timeMax, score);
 		fieldPanel.prepareComponents();
 
 		// リスナーを設置
@@ -53,9 +55,16 @@ public class GamePanel extends JPanel {
 	
 	//タイマースタート
 	public void timerStart() {
-		timeLeft = 600;
-		timer = new Timer(60, taskPerformer);
+		timer = new Timer(1, taskPerformer);
 		timer.start();
+	}
+	
+	//ゲームリセット
+	public void resetGame() {
+		timeLeft = timeMax;
+		score = 0;
+		this.fieldPanel.removeAll();
+		this.fieldPanel.prepareComponents();
 	}
 
 	// 内部クラス(hが押されたらタイトルへ)
@@ -90,17 +99,7 @@ public class GamePanel extends JPanel {
 		}
 
 	}
-//
-//	Timer timer = new Timer(1000, (e) -> {
-//		
-//		if(countdown_sec == 0) {
-//			main.mainWindow.setFrontScreenAndFocus(ScreenMode.TITLE);
-//			timer.stop();
-//		}
-//		countdown_sec--;
-//	});
-//	timer.start();
-//	
+
 	
 	//タイマー用リスナー
 	ActionListener taskPerformer = new ActionListener() {
@@ -109,6 +108,7 @@ public class GamePanel extends JPanel {
 				timer.stop();
 				Main.mainWindow.setFrontScreenAndFocus(ScreenMode.TITLE);
 			}
+			menuBar.actionPerformed(timeLeft, timeMax);
 			timeLeft--;
 		}
 	};

@@ -66,6 +66,11 @@ public class FieldPanel extends JPanel {
 		this.add(a);
 		a.timer.start();
 	}
+	
+	// 動物をランダムに生成して走らせるメソッド
+	public void generateAnimal() {
+		
+	}
 
 //	内部クラス（パネル内でネコを走らせる）
 	private class CatActionListener implements ActionListener {

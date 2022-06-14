@@ -73,6 +73,7 @@ public class MainWindow  extends JFrame{
 		case GAME:
 			layout.show(this.getContentPane(), "ゲーム画面");
 			gamePanel.requestFocus();
+			gamePanel.resetGame();
 			gamePanel.timerStart();
 			break;
 		}

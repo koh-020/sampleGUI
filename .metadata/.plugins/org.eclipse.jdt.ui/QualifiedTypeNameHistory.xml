@@ -12,4 +12,6 @@
     <fullyQualifiedTypeName name="sampleJFrame.MainWindow"/>
     <fullyQualifiedTypeName name="java.awt.Image"/>
     <fullyQualifiedTypeName name="javax.swing.Timer"/>
+    <fullyQualifiedTypeName name="sample07.MyProgressBar.Mode"/>
+    <fullyQualifiedTypeName name="sampleJFrame.Main"/>
 </qualifiedTypeNameHistroy>
