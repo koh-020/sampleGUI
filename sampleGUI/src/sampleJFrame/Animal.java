@@ -19,6 +19,7 @@ public abstract class Animal extends JLabel {
 	int y;
 	int xVelocity;
 	int yVelocity;
+	String direction;
 
 	// コンストラクタ
 	public Animal() {
@@ -41,11 +42,20 @@ public abstract class Animal extends JLabel {
 	public void paint(Graphics g) {
 		super.paint(g);
 		Graphics2D g2D = (Graphics2D) g;
-		if (xVelocity <= 0) {
-			g2D.drawImage(image, 0, 0, image.getWidth(null), image.getHeight(null), null);
-		} else {
-			g2D.drawImage(image, image.getWidth(null), 0, -image.getWidth(null), image.getHeight(null), null);
+		if (direction == "left") {
+			if (xVelocity <= 0) {
+				g2D.drawImage(image, 0, 0, image.getWidth(null), image.getHeight(null), null);
+			} else {
+				g2D.drawImage(image, image.getWidth(null), 0, -image.getWidth(null), image.getHeight(null), null);
+			}
+		} else if (direction == "right") {
+			if (xVelocity <= 0) {
+				g2D.drawImage(image, image.getWidth(null), 0, -image.getWidth(null), image.getHeight(null), null);
+			} else {
+				g2D.drawImage(image, 0, 0, image.getWidth(null), image.getHeight(null), null);
+			}
 		}
+		
 	}
 
 }

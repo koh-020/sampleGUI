@@ -20,6 +20,7 @@ public class Cat_Normal extends Animal {
 		super.image = catImage.getImage();
 		super.score = 5;
 		super.voiceKey = "ニャー";
+		super.direction = "right";
 	};
 
 }

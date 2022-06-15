@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Random;
 
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -34,21 +35,15 @@ public class FieldPanel extends JPanel {
 	public void prepareComponents() {
 
 		layeredPane = new JLayeredPane();
-//		final int PANE_WIDTH = layeredPane.getWidth();
-//		final int PANE_HEIGHT = layeredPane.getHeight();
-//		layeredPane.setLayout(null);
 
-//		layeredPane.setBounds(0, 0, PANE_WIDTH, PANE_HEIGHT);
 		layeredPane.setBounds(0, 0, 1000, 800);
 		this.add(layeredPane);
 
-		Animal cat01 = new Cat_Normal();
+//		Animal cat01 = new Cat_Normal();
+		Animal cat01 = new Cat_SSR();
 		vitalizeCat(cat01);
 		Animal cat02 = new Cat_Normal();
 		vitalizeCat(cat02);
-//		List<Animal> animal = new ArrayList<>();
-//		animal.add(cat01);
-//		animal.add(cat02);
 
 		catPot = new CatPot();
 		catPot.setLocation(400, 400);
@@ -69,7 +64,35 @@ public class FieldPanel extends JPanel {
 	
 	// 動物をランダムに生成して走らせるメソッド
 	public void generateAnimal() {
-		
+		Random r = new Random();
+		int random = r.nextInt(10);
+		Animal a = null;
+		switch(random) {
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+			a = new Cat_Normal();
+			break;
+		case 4:
+		case 5:
+			a = new Cat_Rare();
+			break;
+		case 6:
+		case 7:
+			a = new Cat_SuperRare();
+			break;
+		case 8:
+			a = new Cat_SSR();
+			break;
+		case 9:
+			a = new Cat_UltraRare();
+			break;
+		default:
+			break;
+		}
+		vitalizeCat(a);
+		this.layeredPane.add(a);
 	}
 
 //	内部クラス（パネル内でネコを走らせる）
@@ -115,7 +138,7 @@ public class FieldPanel extends JPanel {
 			dx = e.getXOnScreen() - animal.getX();
 			dy = e.getYOnScreen() - animal.getY();
 		}
-
+		//マウスをドラッグした時に移動できる
 		public void mouseDragged(MouseEvent e) {
 			int x = e.getXOnScreen() - dx;
 			int y = e.getYOnScreen() - dy;
@@ -141,14 +164,14 @@ public class FieldPanel extends JPanel {
 				// 鳴き声を再生
 //				MySpeaker.playSE(animal.voiceKey);
 				// スコア計算と不可視化処理
-//				sampleJFrame..MainWindow.gamePanel.score += animal.score;
-//				String str = "SCORE：" + sampleJFrame.mianWindow.gamePanel.score;
-//				sampleJFrame.MainWindow.gamePanel.menuBar.ScoreLabel.setText(str);
+				Main.mainWindow.gamePanel.score += animal.score;
+				String str = "SCORE：" + Main.mainWindow.gamePanel.score;
+				Main.mainWindow.gamePanel.menuBar.scoreLabel.setText(str);
 				animal.setVisible(false);
 				// 追加
-//				generate Animal();
+				generateAnimal();
 			} else {
-//				animal.timer.start();
+				animal.timer.start();
 			}
 
 		}

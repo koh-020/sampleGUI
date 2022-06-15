@@ -17,10 +17,10 @@ public class GamePanel extends JPanel {
 	BorderLayout layout = new BorderLayout();
 
 	// フィールド
-	int timeMax = 6000;
-	int timeLeft = timeMax;
+	public final int TIME_MAX = 6000;
+	public int timeLeft = TIME_MAX;
 	Timer timer;
-	int score = 0;
+	public int score = 0;
 
 //	コンポーネント
 	MenuBar menuBar;
@@ -46,7 +46,7 @@ public class GamePanel extends JPanel {
 
 //	コンストラクタが呼ばれた後手動で呼び出す
 	public void prepareComponents() {
-		menuBar.prepareComponents(timeMax, score);
+		menuBar.prepareComponents(TIME_MAX, score);
 		fieldPanel.prepareComponents();
 
 		// リスナーを設置
@@ -61,10 +61,11 @@ public class GamePanel extends JPanel {
 	
 	//ゲームリセット
 	public void resetGame() {
-		timeLeft = timeMax;
+		timeLeft = TIME_MAX;
 		score = 0;
 		this.fieldPanel.removeAll();
 		this.fieldPanel.prepareComponents();
+		this.menuBar.scoreLabel.setText("SCORE：" + score);
 	}
 
 	// 内部クラス(hが押されたらタイトルへ)
@@ -108,7 +109,7 @@ public class GamePanel extends JPanel {
 				timer.stop();
 				Main.mainWindow.setFrontScreenAndFocus(ScreenMode.TITLE);
 			}
-			menuBar.actionPerformed(timeLeft, timeMax);
+			menuBar.actionPerformed(timeLeft, TIME_MAX);
 			timeLeft--;
 		}
 	};
