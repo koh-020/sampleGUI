@@ -73,7 +73,7 @@ public class FieldPanel extends JPanel {
 			a = new Cat_Rare();
 		} else if (random > 600 + 200 + 150) {
 			a = new Cat_SuperRare();
-		} else if (random > 600 + 200 + 150 + 50) {
+		} else if (random > 600 + 200 + 150 + 30) {
 			a = new Cat_SSR();
 		} else {
 			a = new Cat_UltraRare();
@@ -132,6 +132,7 @@ public class FieldPanel extends JPanel {
 			int x = e.getXOnScreen() - dx;
 			int y = e.getYOnScreen() - dy;
 			if (x < Main.mainWindow.gamePanel.fieldPanel.getWidth() - animal.getWidth() - 5 && x > 5) {
+
 				animal.x = x;
 			}
 			if (y < Main.mainWindow.gamePanel.fieldPanel.getHeight() - animal.getHeight() - 5 && y > 5) {

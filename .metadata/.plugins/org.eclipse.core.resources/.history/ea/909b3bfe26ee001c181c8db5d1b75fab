@@ -132,6 +132,7 @@ public class FieldPanel extends JPanel {
 			int x = e.getXOnScreen() - dx;
 			int y = e.getYOnScreen() - dy;
 			if (x < Main.mainWindow.gamePanel.fieldPanel.getWidth() - animal.getWidth() - 5 && x > 5) {
+
 				animal.x = x;
 			}
 			if (y < Main.mainWindow.gamePanel.fieldPanel.getHeight() - animal.getHeight() - 5 && y > 5) {

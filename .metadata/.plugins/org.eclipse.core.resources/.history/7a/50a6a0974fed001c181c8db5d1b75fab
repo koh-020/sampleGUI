@@ -14,7 +14,7 @@ public class CatPot extends JLabel{
 	
 	//コンストラクタ
 	public CatPot() {
-		image = new ImageIcon(getClass().getClassLoader().getResource("cup.png"));
+		image = new ImageIcon(getClass().getClassLoader().getResource("./images/cup.png"));
 		MediaTracker tracker = new MediaTracker(this);
 		Image smallCupImage = image.getImage().getScaledInstance((int) (image.getIconWidth() * 0.2), -1, Image.SCALE_SMOOTH);
 		tracker.addImage(smallCupImage, 1);

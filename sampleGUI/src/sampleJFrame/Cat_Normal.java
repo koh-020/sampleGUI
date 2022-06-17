@@ -10,7 +10,7 @@ public class Cat_Normal extends Animal {
 
 	// 設定
 	protected void prepareImageAndScoreAndVoice() {
-		ImageIcon image = new ImageIcon(getClass().getClassLoader().getResource("./images/run_cat_smile.png"));
+		ImageIcon image = new ImageIcon(getClass().getClassLoader().getResource("run_cat_smile.png"));
 		MediaTracker tracker = new MediaTracker(this);
 		Image smallCatImage = image.getImage().getScaledInstance((int) (image.getIconWidth() * 0.5), -1,
 				Image.SCALE_SMOOTH);

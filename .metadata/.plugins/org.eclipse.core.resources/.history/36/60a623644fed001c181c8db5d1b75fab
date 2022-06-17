@@ -39,7 +39,8 @@ public class FieldPanel extends JPanel {
 		layeredPane.setBounds(0, 0, 1000, 800);
 		this.add(layeredPane);
 
-		Animal cat01 = new Cat_Normal();
+//		Animal cat01 = new Cat_Normal();
+		Animal cat01 = new Cat_SSR();
 		vitalizeCat(cat01);
 		Animal cat02 = new Cat_Normal();
 		vitalizeCat(cat02);
@@ -60,27 +61,38 @@ public class FieldPanel extends JPanel {
 		this.add(a);
 		a.timer.start();
 	}
-
+	
 	// 動物をランダムに生成して走らせるメソッド
 	public void generateAnimal() {
 		Random r = new Random();
-		int random = r.nextInt(1000);
+		int random = r.nextInt(10);
 		Animal a = null;
-		if (random > 600) {
+		switch(random) {
+		case 0:
+		case 1:
+		case 2:
+		case 3:
 			a = new Cat_Normal();
-		} else if (random > 600 + 200) {
-			
+			break;
+		case 4:
+		case 5:
 			a = new Cat_Rare();
-		} else if (random > 600 + 200 + 150) {
+			break;
+		case 6:
+		case 7:
 			a = new Cat_SuperRare();
-		} else if (random > 600 + 200 + 150 + 50) {
+			break;
+		case 8:
 			a = new Cat_SSR();
-		} else {
+			break;
+		case 9:
 			a = new Cat_UltraRare();
+			break;
+		default:
+			break;
 		}
 		vitalizeCat(a);
 		this.layeredPane.add(a);
-		this.layeredPane.moveToFront(a);
 	}
 
 //	内部クラス（パネル内でネコを走らせる）
@@ -126,12 +138,12 @@ public class FieldPanel extends JPanel {
 			dx = e.getXOnScreen() - animal.getX();
 			dy = e.getYOnScreen() - animal.getY();
 		}
-
-		// マウスをドラッグした時に移動できる
+		//マウスをドラッグした時に移動できる
 		public void mouseDragged(MouseEvent e) {
 			int x = e.getXOnScreen() - dx;
 			int y = e.getYOnScreen() - dy;
 			if (x < Main.mainWindow.gamePanel.fieldPanel.getWidth() - animal.getWidth() - 5 && x > 5) {
+
 				animal.x = x;
 			}
 			if (y < Main.mainWindow.gamePanel.fieldPanel.getHeight() - animal.getHeight() - 5 && y > 5) {

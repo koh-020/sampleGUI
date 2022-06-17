@@ -9,7 +9,7 @@ public class Cat_UltraRare extends Animal{
 
 	//設定
 	protected void prepareImageAndScoreAndVoice() {
-		ImageIcon image = new ImageIcon(getClass().getClassLoader().getResource("jitensya_neko.png"));
+		ImageIcon image = new ImageIcon(getClass().getClassLoader().getResource("./images/jitensya_neko.png"));
 		MediaTracker tracker = new MediaTracker(this);
 		Image smallCatImage = image.getImage().getScaledInstance((int) (image.getIconWidth() * 0.5), -1,
 				Image.SCALE_SMOOTH);

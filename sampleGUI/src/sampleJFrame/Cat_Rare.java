@@ -9,7 +9,7 @@ public class Cat_Rare extends Animal{
 
 	//設定
 	protected void prepareImageAndScoreAndVoice() {
-		ImageIcon image = new ImageIcon(getClass().getClassLoader().getResource("./images/cat_nezumi_oikakeru.png"));
+		ImageIcon image = new ImageIcon(getClass().getClassLoader().getResource("cat_nezumi_oikakeru.png"));
 		MediaTracker tracker = new MediaTracker(this);
 		Image smallCatImage = image.getImage().getScaledInstance((int) (image.getIconWidth() * 0.5), -1,
 				Image.SCALE_SMOOTH);

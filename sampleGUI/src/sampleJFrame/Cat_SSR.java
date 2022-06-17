@@ -16,7 +16,7 @@ public class Cat_SSR extends Animal{
 	
 	//設定
 	protected void prepareImageAndScoreAndVoice() {
-		ImageIcon image = new ImageIcon(getClass().getClassLoader().getResource("./images/kotowaza_neko_koban.png"));
+		ImageIcon image = new ImageIcon(getClass().getClassLoader().getResource("kotowaza_neko_koban.png"));
 		MediaTracker tracker = new MediaTracker(this);
 		Image smallCatImage = image.getImage().getScaledInstance((int) (image.getIconWidth() * 0.5), -1,
 				Image.SCALE_SMOOTH);

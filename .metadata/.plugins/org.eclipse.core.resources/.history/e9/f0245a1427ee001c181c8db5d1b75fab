@@ -155,7 +155,7 @@ public class FieldPanel extends JPanel {
 				Main.mainWindow.gamePanel.score += animal.score;
 				String str = "SCORE：" + Main.mainWindow.gamePanel.score;
 				Main.mainWindow.gamePanel.menuBar.scoreLabel.setText(str);
-				animal.setVisible(false);
+				animal = null;
 				// 追加
 				generateAnimal();
 			} else {
