@@ -1,0 +1,17 @@
+package sample08;
+
+import java.io.FileInputStream;
+
+import javazoom.jl.player.Player;
+
+public class Sound {
+	public static void main(String args[]) {
+		try {
+			FileInputStream file = new FileInputStream("Smile_Today.mp3");
+			Player playMP3 = new Player(file);
+			playMP3.play();
+		} catch (Exception e) {
+			
+		}
+	}
+}

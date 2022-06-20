@@ -1,0 +1,13 @@
+package sample08;
+
+public class Main {
+	static Sound soundWindow;
+	
+	public static void main(String args[]) {
+		soundWindow  = new Sound();
+		soundWindow.setVisible(true);
+		
+		
+	}
+
+}

@@ -1,5 +1,0 @@
-package sampleJFrame;
-
-public class Cat_Normal extends Animal {
-	
-}

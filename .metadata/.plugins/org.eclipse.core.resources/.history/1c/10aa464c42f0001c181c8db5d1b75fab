@@ -1,0 +1,13 @@
+package sample08;
+
+import java.io.FileInputStream;
+
+public class Sound {
+	public static void main(String args[]) {
+		try {
+			FileInputStream file = FileInputStream("Smile_Today.mp3");
+		} catch (Exception e) {
+			
+		}
+	}
+}

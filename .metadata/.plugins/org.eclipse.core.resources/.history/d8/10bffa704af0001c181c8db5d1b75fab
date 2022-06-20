@@ -1,0 +1,31 @@
+package sample08;
+
+import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+import javazoom.jl.player.Player;
+
+public class Sound {
+	public static void main(String args[]) {
+		//コンポーネント
+		JFrame frame;
+		JButton button;
+		
+		//再生用リスナー
+		private class PlayListener implements ActionListener {
+			@Override
+			
+		}
+		try {
+			FileInputStream file = new FileInputStream("./sounds/Smile_Today.mp3");
+			Player playMP3 = new Player(file);
+			playMP3.play();
+			
+		} catch (Exception e) {
+			System.out.println("エラーが発生、デバッグを推奨します。");
+		}
+	}
+}

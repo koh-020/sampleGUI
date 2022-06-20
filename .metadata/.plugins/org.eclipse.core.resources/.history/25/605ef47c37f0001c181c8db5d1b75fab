@@ -1,0 +1,10 @@
+package sample08;
+
+import javax.swing.JFrame;
+
+public class Sound extends JFrame{
+	//再生モード停止
+	static final int PLAY_MODE = 0;
+	static final int PLAY_MODE_PAUSE = 1;
+	
+}

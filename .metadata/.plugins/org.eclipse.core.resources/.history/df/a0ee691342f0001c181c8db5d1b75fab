@@ -1,0 +1,18 @@
+package sample08;
+
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javazoom.jl.player.jlp;
+import java.io.FileInputStream;
+
+public class Sound {
+	public static void main(String args[]) {
+		try {
+			FileInputStream file = FileInputStream("Smile_Today.mp3");
+		} catch (Exception e) {
+			
+		}
+	}
+}

@@ -1,6 +1,0 @@
-package sampleJFrame;
-
-public class Cat_SSR extends Animal{
-	private static final long serialVersionUID = 1L;
-	
-}

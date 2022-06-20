@@ -1,0 +1,120 @@
+package sample08;
+
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+import javazoom.jl.player.Player;
+
+public class Sound extends JFrame implements Runnable {
+	private static final long serialVersionUID = 1L;
+	
+	final int WIDTH = 1000;
+	final int HEIGHT = 800;
+	
+	//レイアウト
+	CardLayout layout = new CardLayout();
+	
+
+	// コンポーネント
+	JButton playButton;
+	JButton stopButton;
+	
+	//スレッド
+	private Thread playThread;
+	
+//	SoundPlay soundPlay;
+	
+	//コンストラクタ
+	Sound() {
+		this.setTitle("SoundSample");
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.getContentPane().setBackground(Color.cyan);
+		this.setLayout(null);
+		this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
+		this.pack();
+		this.setLocationRelativeTo(null);
+		
+		//コンポーネント設置
+		playButton = new JButton();
+		playButton.setBounds(30, 30, 80, 80);
+		playButton.setText("PLAY");
+		stopButton = new JButton();
+		stopButton.setBounds(200, 30, 80,80);
+		stopButton.setText("STOP");
+		ActionListener soundPlay = new SoundPlay();
+		playButton.addActionListener(soundPlay);
+		ActionListener soundStop = new SoundStop();
+		playButton.addActionListener(soundStop);
+		this.add(playButton);
+		this.add(stopButton);
+		
+	
+	}
+	
+	//再生用リスナー
+	private class SoundPlay implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			start();
+		}
+	}
+	
+	//停止用リスナー
+	private class SoundStop implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			stop();
+		}
+	}
+	
+	
+	
+	
+	
+	
+//メソッド（音楽再生）
+	private void start() {
+		
+	
+		try
+		{
+			FileInputStream file = new FileInputStream("./sounds/Smile_Today.mp3");
+			Player playMP3 = new Player(file);
+			playThread = new Thread(this, "MP3PlayerThread");
+			playMP3.play();
+	
+		}catch(
+		Exception e)
+		{
+			System.out.println("エラーが発生、デバッグを推奨します。");
+		}
+	}
+	
+// メソッド（音楽停止）
+	private void stop() {
+		
+		
+		try
+		{
+			currentThread().close();
+	
+		}catch(
+		Exception e)
+		{
+			System.out.println("エラーが発生、デバッグを推奨します。");
+		}
+	}
+	
+	@Override
+	public void run() {
+		System.out.println("Soundクラスを実行しました。");
+	}
+
+}
