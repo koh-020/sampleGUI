@@ -105,7 +105,6 @@ public class GamePanel extends JPanel {
 			switch (e.getKeyCode()) {
 			case KeyEvent.VK_H:
 				Main.mainWindow.setFrontScreenAndFocus(ScreenMode.TITLE);
-				Main.mainWindow.gamePanel.soundStop();
 				break;
 			}
 		}
@@ -119,17 +118,22 @@ public class GamePanel extends JPanel {
 			if(timeLeft == 0) {
 				timer.stop();
 				Main.mainWindow.setFrontScreenAndFocus(ScreenMode.TITLE);
-				Main.mainWindow.gamePanel.soundStop();
 			}
 			menuBar.actionPerformed(timeLeft, TIME_MAX);
 			timeLeft--;
 		}
 	};
 	
-
+	//音楽用リスナー
+	private class SoundPlay implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			soundStart();
+		}
+	}
 	
 	//音楽再生メソッド
-	public void soundStart() {
+	private void soundStart() {
 		try {
 			MultiThread mt = new MultiThread();
 			thread = new Thread(mt);
@@ -137,16 +141,6 @@ public class GamePanel extends JPanel {
 		} catch (Exception e) {
 			e.printStackTrace();
 			thread.interrupt();
-		}
-	}
-	
-	//音楽停止用メソッド
-	public void soundStop() {
-		try {
-			playMP3.close();
-			thread.interrupt();
-		} catch(Exception e) {
-			System.out.println("エラーが発生しました。");
 		}
 	}
 	

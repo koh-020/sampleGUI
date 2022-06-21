@@ -132,7 +132,6 @@ public class Sound extends JFrame {
 			
 				try {
 					FileInputStream file = new FileInputStream("./sounds/Smile_Today.mp3");
-//					FileInputStream file = new FileInputStream(getClass().getResource("Smile_Today.mp3"));
 					playMP3 = new Player(file);
 					playMP3.play();
 					System.out.println("Soundクラスを実行しました。");
