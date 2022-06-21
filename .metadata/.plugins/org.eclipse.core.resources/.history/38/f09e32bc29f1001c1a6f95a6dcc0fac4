@@ -6,8 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.net.URL;
 
 import javax.swing.JPanel;
@@ -156,13 +156,14 @@ public class GamePanel extends JPanel {
 		@Override
 		public void run() {
 			try {
+				FileInputStream file = new FileInputStream("./sounds/Smile_Today.mp3");
 				URL url = this.getClass().getClassLoader().getResource("Smile_Today.mp3");
-				playMP3 = new Player(url.openStream());
+				playMP3 = new Player(file);
 				playMP3.play();
 			} catch(FileNotFoundException fe) {
 				fe.printStackTrace();
-			} catch (JavaLayerException | IOException e) {
-				e.printStackTrace();
+			} catch (JavaLayerException je) {
+				je.printStackTrace();
 			}
 		}
 	}
