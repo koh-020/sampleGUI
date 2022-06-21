@@ -74,7 +74,7 @@ public class MainWindow  extends JFrame{
 			layout.show(this.getContentPane(), "ゲーム画面");
 			gamePanel.requestFocus();
 			gamePanel.resetGame();
-			gamePanel.timerStart();
+//			gamePanel.timerStart();
 			gamePanel.soundStart();
 			break;
 		}

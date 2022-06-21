@@ -20,6 +20,8 @@ public class FieldPanel extends JPanel {
 	JLayeredPane layeredPane;
 	CatPot catPot;
 	Animal animal;
+	CatActionListener catListener;
+	static Boolean playing = true;
 
 	JLabel greenLabel;
 
@@ -54,7 +56,7 @@ public class FieldPanel extends JPanel {
 
 //	ネコにリスナーをつけてからパネルにはるメソッド
 	public void vitalizeCat(Animal a) {
-		CatActionListener catListener = new CatActionListener(a);
+		catListener = new CatActionListener(a);
 		a.timer = new Timer(10, catListener);
 		new DDListener(a);
 		this.add(a);
@@ -82,9 +84,23 @@ public class FieldPanel extends JPanel {
 		this.layeredPane.add(a);
 		this.layeredPane.moveToFront(a);
 	}
+	
+	//ネコの動きを止めるメソッド
+	public static void stopAllAnimals() {
+		FieldPanel.playing = false;
+	}
+	
+	//ネコの動きを再開させるメソッド
+	public static void startAllAnimals() {
+		FieldPanel.playing = true;
+		
+	}
 
 //	内部クラス（パネル内でネコを走らせる）
 	private class CatActionListener implements ActionListener {
+		
+			
+	
 		private Animal animal;
 
 		public CatActionListener(Animal a) {
@@ -93,16 +109,18 @@ public class FieldPanel extends JPanel {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if(animal.x > Main.mainWindow.gamePanel.fieldPanel.getWidth() - animal.getWidth() || animal.x < 0) {
-				animal.xVelocity = animal.xVelocity * (-1);
+ 			if(FieldPanel.playing) {
+				if(animal.x > Main.mainWindow.gamePanel.fieldPanel.getWidth() - animal.getWidth() || animal.x < 0) {
+					animal.xVelocity = animal.xVelocity * (-1);
+				}
+				animal.x = animal.x + animal.xVelocity;
+				if(animal.y > Main.mainWindow.gamePanel.fieldPanel.getHeight() - animal.getHeight() || animal.y < 0) {
+					animal.yVelocity = animal.yVelocity * (-1);
+				}
+				animal.y = animal.y + animal.yVelocity;
+				animal.setLocation(animal.x, animal.y);
+				animal.repaint();
 			}
-			animal.x = animal.x + animal.xVelocity;
-			if(animal.y > Main.mainWindow.gamePanel.fieldPanel.getHeight() - animal.getHeight() || animal.y < 0) {
-				animal.yVelocity = animal.yVelocity * (-1);
-			}
-			animal.y = animal.y + animal.yVelocity;
-			animal.setLocation(animal.x, animal.y);
-			animal.repaint();
 		}
 
 	}

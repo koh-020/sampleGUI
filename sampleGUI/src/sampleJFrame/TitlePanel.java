@@ -139,6 +139,7 @@ public class TitlePanel extends JPanel{
 					if (checkMenu == Menu.START) {
 						//開始
 						Main.mainWindow.setFrontScreenAndFocus(ScreenMode.GAME);
+						Main.mainWindow.gamePanel.showRuleDialogue();
 					} else if(checkMenu == Menu.EXIT) {
 						//終了
 						System.exit(0);

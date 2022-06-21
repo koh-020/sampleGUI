@@ -87,7 +87,8 @@ public class MenuBar extends JPanel {
 	private class HomeButtonListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			Main.mainWindow.setFrontScreenAndFocus(ScreenMode.TITLE);
+			Main.mainWindow.gamePanel.backToTitleDialogue();
+//			Main.mainWindow.setFrontScreenAndFocus(ScreenMode.TITLE);
 			Main.mainWindow.gamePanel.soundStop();
 		}
 	}

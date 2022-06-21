@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -34,10 +35,10 @@ public class GamePanel extends JPanel {
 
 	// リスナー
 	MyKeyListener myKeyListener;
-	
-	//スレッド
+
+	// スレッド
 	Thread thread;
-	
+
 	Player playMP3 = null;
 
 //	コンストラクタ
@@ -63,20 +64,21 @@ public class GamePanel extends JPanel {
 		// リスナーを設置
 		myKeyListener = new MyKeyListener(this);
 	}
-	
-	//タイマースタート
+
+	// タイマースタート
 	public void timerStart() {
 		timer = new Timer(1, taskPerformer);
 		timer.start();
 	}
-	
-	//ゲームリセット
+
+	// ゲームリセット
 	public void resetGame() {
 		timeLeft = TIME_MAX;
 		score = 0;
 		fieldPanel.removeAll();
 		fieldPanel.prepareComponents();
 		this.menuBar.scoreLabel.setText("SCORE" + score);
+		FieldPanel.playing = true;
 	}
 
 	// 内部クラス(hが押されたらタイトルへ)
@@ -105,7 +107,7 @@ public class GamePanel extends JPanel {
 		public void keyPressed(KeyEvent e) {
 			switch (e.getKeyCode()) {
 			case KeyEvent.VK_H:
-				Main.mainWindow.setFrontScreenAndFocus(ScreenMode.TITLE);
+				backToTitleDialogue();
 				Main.mainWindow.gamePanel.soundStop();
 				break;
 			}
@@ -113,12 +115,12 @@ public class GamePanel extends JPanel {
 
 	}
 
-	
-	//タイマー用リスナー
+	// タイマー用リスナー
 	ActionListener taskPerformer = new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			if(timeLeft == 0) {
+			if (timeLeft == 0) {
 				timer.stop();
+				showResultDialogue(score);
 				Main.mainWindow.setFrontScreenAndFocus(ScreenMode.TITLE);
 				Main.mainWindow.gamePanel.soundStop();
 			}
@@ -126,10 +128,8 @@ public class GamePanel extends JPanel {
 			timeLeft--;
 		}
 	};
-	
 
-	
-	//音楽再生メソッド
+	// 音楽再生メソッド
 	public void soundStart() {
 		try {
 			MultiThread mt = new MultiThread();
@@ -140,18 +140,18 @@ public class GamePanel extends JPanel {
 			thread.interrupt();
 		}
 	}
-	
-	//音楽停止用メソッド
+
+	// 音楽停止用メソッド
 	public void soundStop() {
 		try {
 			playMP3.close();
 			thread.interrupt();
-		} catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println("エラーが発生しました。");
 		}
 	}
-	
-	//Thread用
+
+	// Thread用
 	class MultiThread implements Runnable {
 		@Override
 		public void run() {
@@ -159,13 +159,48 @@ public class GamePanel extends JPanel {
 				URL url = this.getClass().getClassLoader().getResource("Smile_Today.mp3");
 				playMP3 = new Player(url.openStream());
 				playMP3.play();
-			} catch(FileNotFoundException fe) {
+			} catch (FileNotFoundException fe) {
 				fe.printStackTrace();
 			} catch (JavaLayerException | IOException e) {
 				e.printStackTrace();
 			}
 		}
 	}
-	
-	
+
+	// ルール説明を表示するダイアログ
+	public void showRuleDialogue() {
+		String str = "マウスを操作して制限時間内にネコをたくさん捕まえよう！";
+		JOptionPane.showOptionDialog(this, str, "ルール説明", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null,
+				new Object[] { "スタート" }, "スタート");
+		timerStart();
+	}
+
+	// タイトルへ戻るダイアログ用メソッド
+	public void backToTitleDialogue() {
+		// ネコと制限時間タイマーを止めてから
+		if (!(timer == null)) {
+			timer.stop();
+		}
+		FieldPanel.stopAllAnimals();
+
+		String str = "タイトル画面にもどりますか？";
+		int response = JOptionPane.showOptionDialog(this, str, "HOME", JOptionPane.YES_NO_OPTION,
+				JOptionPane.PLAIN_MESSAGE, null, null, null);
+
+		if (response == JOptionPane.YES_OPTION) {
+			Main.mainWindow.layout.show(Main.mainWindow.getContentPane(), "titlePanel");
+			Main.mainWindow.gamePanel.resetGame();
+			Main.mainWindow.setFrontScreenAndFocus(ScreenMode.TITLE);
+		} else {
+			timer.start();
+			FieldPanel.startAllAnimals();
+		}
+	}
+
+	// 結果を表示するメソッド
+	public void showResultDialogue(int score) {
+		String str = "ゲーム終了！　得点：" + score + "点";
+		JOptionPane.showOptionDialog(this, str, "result", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null,
+				null, 0);
+	}
 }

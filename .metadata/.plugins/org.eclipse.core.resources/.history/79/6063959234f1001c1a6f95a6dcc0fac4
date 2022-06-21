@@ -1,0 +1,93 @@
+package sample09;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class MainPanel extends JPanel {
+	private static final long serialVersionUID = 1L;
+
+	//定数フィールド
+	Color backgroundColor = Color.green;
+	//コンポーネント
+	JLabel textLabel;
+	JPanel buttonPanel;
+	JButton plainButton;
+	JButton questionButton;
+	JButton informationButton;
+	JButton warningButton;
+	JButton errorButton;
+	JButton customButton01;
+	JButton customButton02;
+	JButton customButton03;
+	
+	//リスナー
+	MyButtonListener myButtonListener;
+
+	//コンストラクタ
+	MainPanel() {
+		//パネルサイズと貼り付け位置の設定は不要
+		this.setLayout(new BorderLayout());  //レイアウトの設定
+//		this.setBackground(backgroundColor);  //背景の色
+		//　その他追加設定をここに追記
+	}
+	
+	//メソッド
+	public void prepareComponents() {
+		//以下コンポーネントに関する命令（以下は一例）
+		textLabel = new JLabel("ボタンを押してください");      //ラベル生成
+		textLabel.setHorizontalAlignment(JLabel.CENTER);
+		this.add(textLabel, BorderLayout.NORTH);  //ラベルをこのパネルに貼る
+		
+		//ボタン生成
+		plainButton = new JButton("plain");
+		questionButton = new JButton("question");
+		informationButton = new JButton("information");
+		warningButton = new JButton("warning");
+		errorButton = new JButton("error");
+		customButton01 = new JButton("custom01");
+		customButton02 = new JButton("custom02");
+		customButton03 = new JButton("custom03");
+		
+		//パネルの生成・貼り付け
+		buttonPanel = new JPanel();
+		buttonPanel.setLayout(new FlowLayout());
+		buttonPanel.add(plainButton);
+		buttonPanel.add(questionButton);
+		buttonPanel.add(informationButton);
+		buttonPanel.add(warningButton);
+		buttonPanel.add(errorButton);
+		buttonPanel.add(customButton01);
+		buttonPanel.add(customButton02);
+		buttonPanel.add(customButton03);
+		this.add(buttonPanel, BorderLayout.CENTER);
+		
+		//ボタンの設定
+		myButtonListener = new MyButtonListener(this);
+		plainButton.addActionListener(myButtonListener);
+		questionButton.addActionListener(myButtonListener);
+		informationButton.addActionListener(myButtonListener);
+		warningButton.addActionListener(myButtonListener);
+		errorButton.addActionListener(myButtonListener);
+		customButton01.addActionListener(myButtonListener);
+		customButton02.addActionListener(myButtonListener);
+		customButton03.addActionListener(myButtonListener);
+	}
+	
+	//内部クラス（ボタンを監視）
+	private class MyButtonListener implements ActionListener {
+		MainPanel panel;
+		
+		//コンストラクタ
+		MyButtonListener(MainPanel p) {
+			super();
+			panel = p;
+		}
+		public void actionPerformed(ActionEvent e) {
+			
+		}
+	}
+}
