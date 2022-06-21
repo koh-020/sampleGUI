@@ -32,7 +32,6 @@ public class Sound extends JFrame {
 	
 	//スレッド
 //	private Thread playThread;
-	Thread thread;
 	
 //	SoundPlay soundPlay;
 	
@@ -92,7 +91,7 @@ public class Sound extends JFrame {
 		{
 			this.isActive = true;
 			MultiThread mt = new MultiThread();
-			thread = new Thread(mt);
+			Thread thread = new Thread(mt);
 			thread.start();
 //			playThread.start();
 	
@@ -100,7 +99,7 @@ public class Sound extends JFrame {
 		Exception e)
 		{
 			System.out.println("エラーが発生、デバッグを推奨します。");
-			thread.interrupt();
+			Thread.currentThread().interrupt();
 		}
 	}
 	
@@ -114,7 +113,6 @@ public class Sound extends JFrame {
 			System.out.println("停止します");
 			this.isActive = false;
 			playMP3.close();
-			thread.interrupt();
 	
 		}catch(Exception e)
 		{

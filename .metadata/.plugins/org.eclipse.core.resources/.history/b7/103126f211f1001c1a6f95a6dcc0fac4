@@ -28,11 +28,9 @@ public class Sound extends JFrame {
 	// コンポーネント
 	JButton playButton;
 	JButton stopButton;
-	Player playMP3 = null;
 	
 	//スレッド
 //	private Thread playThread;
-	Thread thread;
 	
 //	SoundPlay soundPlay;
 	
@@ -92,7 +90,7 @@ public class Sound extends JFrame {
 		{
 			this.isActive = true;
 			MultiThread mt = new MultiThread();
-			thread = new Thread(mt);
+			Thread thread = new Thread(mt);
 			thread.start();
 //			playThread.start();
 	
@@ -100,7 +98,6 @@ public class Sound extends JFrame {
 		Exception e)
 		{
 			System.out.println("エラーが発生、デバッグを推奨します。");
-			thread.interrupt();
 		}
 	}
 	
@@ -110,11 +107,8 @@ public class Sound extends JFrame {
 		
 		try
 		{
-			
 			System.out.println("停止します");
 			this.isActive = false;
-			playMP3.close();
-			thread.interrupt();
 	
 		}catch(Exception e)
 		{
@@ -132,7 +126,7 @@ public class Sound extends JFrame {
 			
 				try {
 					FileInputStream file = new FileInputStream("./sounds/Smile_Today.mp3");
-					playMP3 = new Player(file);
+					Player playMP3 = new Player(file);
 					playMP3.play();
 					System.out.println("Soundクラスを実行しました。");
 					
