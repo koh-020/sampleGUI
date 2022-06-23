@@ -68,14 +68,14 @@ public class FieldPanel extends JPanel {
 		Random r = new Random();
 		int random = r.nextInt(1000);
 		Animal a = null;
-		if (random > 600) {
+		if (random < 600) {
 			a = new Cat_Normal();
-		} else if (random > 600 + 200) {
+		} else if (random < 600 + 200) {
 			
 			a = new Cat_Rare();
-		} else if (random > 600 + 200 + 150) {
+		} else if (random < 600 + 200 + 150) {
 			a = new Cat_SuperRare();
-		} else if (random > 600 + 200 + 150 + 50) {
+		} else if (random < 600 + 200 + 150 + 40) {
 			a = new Cat_SSR();
 		} else {
 			a = new Cat_UltraRare();

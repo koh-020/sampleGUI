@@ -2,10 +2,13 @@ package sampleJFrame;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.MediaTracker;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -34,21 +37,28 @@ public class TitlePanel extends JPanel{
 	public TitlePanel() {
 //		パネルサイズと貼り付け位置の設定は不要
 		this.setLayout(null); //レイアウトの設定
-		this.setBackground(Color.cyan); //背景色
+		this.setBackground(new Color(255, 222, 173)); //背景色
 	}
 	
 //	コンストラクタが呼ばれた後手動で呼び出す
 	public void prepareComponents() {
 		// タイトルロゴ
 		title = new JLabel();
-//		ImageIcon titleLogo = new ImageIcon(getClass().getClassLoader.getResource("title.png")); //600x300の画像を想定
-//		title.setIcon(titleLogo);
+		ImageIcon image = new ImageIcon(getClass().getClassLoader().getResource("title.png")); //600x300の画像を想定
+//		ImageIcon image = new ImageIcon(getClass().getClassLoader().getResource("run_cat_smile.png"));
+		MediaTracker tracker = new MediaTracker(this);
+		Image smallTitleImage = image.getImage().getScaledInstance((int) (image.getIconWidth() * 0.5), -1,
+				Image.SCALE_SMOOTH);
+		tracker.addImage(smallTitleImage, 1);
+		ImageIcon titleLogo = new ImageIcon(smallTitleImage);
+		
+		title.setIcon(titleLogo);
 		title.setHorizontalAlignment(SwingConstants.CENTER);
 		title.setVerticalAlignment(SwingConstants.BOTTOM);
 		title.setText("Created by koh");
 		title.setHorizontalTextPosition(JLabel.CENTER);
 		title.setVerticalTextPosition(SwingConstants.BOTTOM);
-		title.setBounds(90, 0, 600, 350);
+		title.setBounds(90, 0, 800, 450);
 		this.setBorder(border);
 		
 		//選択肢
@@ -57,7 +67,7 @@ public class TitlePanel extends JPanel{
 		start.setFont(new Font("MV boil", Font.BOLD, 40));
 		start.setHorizontalTextPosition(JLabel.CENTER);
 		start.setVerticalTextPosition(JLabel.BOTTOM);
-		start.setBounds(330, 400, 150, 40);
+		start.setBounds(410, 500, 150, 40);
 		start.setBorder(border);
 	
 		exit = new JLabel();
@@ -65,7 +75,7 @@ public class TitlePanel extends JPanel{
 		exit.setFont(new Font("MV boid", Font.BOLD, 40));
 		exit.setHorizontalTextPosition(JLabel.CENTER);
 		exit.setVerticalTextPosition(JLabel.BOTTOM);
-		exit.setBounds(350, 450, 110, 40);
+		exit.setBounds(430, 550, 110, 40);
 		exit.setBorder(border);
 	
 		
@@ -73,7 +83,7 @@ public class TitlePanel extends JPanel{
 		select  = new JLabel();
 		select.setBackground(Color.blue);
 		select.setOpaque(true);
-		select.setBounds(280, 400, 40, 40);
+		select.setBounds(360, 500, 40, 40);
 		select.setBorder(border);
 		
 //		説明
@@ -82,7 +92,7 @@ public class TitlePanel extends JPanel{
 		message.setText("選択：↑,↓　　決定：space");
 		message.setVerticalTextPosition(JLabel.CENTER);
 		message.setHorizontalTextPosition(JLabel.CENTER);
-		message.setBounds(249, 517, 300, 30);
+		message.setBounds(329, 617, 300, 30);
 		message.setBorder(border);
 		
 //		配置

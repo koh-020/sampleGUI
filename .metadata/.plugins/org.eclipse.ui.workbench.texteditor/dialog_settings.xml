@@ -8,6 +8,9 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="soundStop"/>
+			<item value="taskPerformer"/>
+			<item value="actionPerformed"/>
 			<item value="100"/>
 			<item value="TImer"/>
 			<item value="gameLabel"/>
@@ -17,8 +20,8 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="995"/>
-		<item key="DIALOG_Y_ORIGIN" value="416"/>
+		<item key="DIALOG_X_ORIGIN" value="916"/>
+		<item key="DIALOG_Y_ORIGIN" value="606"/>
 		<item key="DIALOG_WIDTH" value="364"/>
 		<item key="DIALOG_HEIGHT" value="370"/>
 		<item key="DIALOG_FONT_NAME" value="1|Yu Gothic UI|9.0|0|WINDOWS|1|-24|0|0|0|400|0|0|0|1|0|0|0|0|Yu Gothic UI"/>

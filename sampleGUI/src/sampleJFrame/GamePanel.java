@@ -48,9 +48,7 @@ public class GamePanel extends JPanel {
 		this.setBackground(Color.yellow); // 背景色
 		// パネル生成と設置
 		menuBar = new MenuBar();
-//		menuBar.setLayout(null);
 		fieldPanel = new FieldPanel();
-//		fieldPanel.setLayout(null);
 		this.add(menuBar, BorderLayout.NORTH);
 		this.add(fieldPanel, BorderLayout.CENTER);
 
@@ -77,7 +75,8 @@ public class GamePanel extends JPanel {
 		score = 0;
 		fieldPanel.removeAll();
 		fieldPanel.prepareComponents();
-		this.menuBar.scoreLabel.setText("SCORE" + score);
+		this.menuBar.scoreLabel.setText("SCORE : " + score);
+		soundStop();
 		FieldPanel.playing = true;
 	}
 

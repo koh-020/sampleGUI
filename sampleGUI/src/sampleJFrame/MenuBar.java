@@ -25,7 +25,7 @@ public class MenuBar extends JPanel {
 	public MenuBar() {
 		// パネルサイズと貼り付け位置の設定は不要（BorderLayoutが自動で画面サイズに合わせてくれる）
 		this.setPreferredSize(new Dimension(100, 40)); // 幅は自動調整されるがこの命令は必要
-		this.setBackground(Color.red);
+		this.setBackground(new Color(224, 255, 255));
 		this.setLayout(null);
 	}
 
@@ -56,13 +56,13 @@ public class MenuBar extends JPanel {
 				return Color.gray;
 			}
 		});
-		System.out.println("情報" + timeLimitBar.getString());
+//		System.out.println("情報" + timeLimitBar.getString());
 		timeLimitBar.setFont(new Font("MV Boli", Font.BOLD, 25));
-		timeLimitBar.setStringPainted(true);
+		timeLimitBar.setStringPainted(false);
 
 		// スコアを表示
 		scoreLabel = new JLabel();
-		scoreLabel.setText("score：" + score);
+		scoreLabel.setText("SCORE : " + score);
 		scoreLabel.setBounds(800, 5, 300, 30);
 
 		// ラベル
@@ -79,7 +79,7 @@ public class MenuBar extends JPanel {
 
 	// 制限時間を表示
 	public void actionPerformed(int time, int max) {
-		timeLimitBar.setString(Integer.toString(time));
+//		timeLimitBar.setString(Integer.toString(time));
 		timeLimitBar.setValue(time * 100 / max);
 	}
 
@@ -89,7 +89,6 @@ public class MenuBar extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			Main.mainWindow.gamePanel.backToTitleDialogue();
 //			Main.mainWindow.setFrontScreenAndFocus(ScreenMode.TITLE);
-			Main.mainWindow.gamePanel.soundStop();
 		}
 	}
 

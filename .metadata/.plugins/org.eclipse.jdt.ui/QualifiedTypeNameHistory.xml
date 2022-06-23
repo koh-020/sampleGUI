@@ -14,4 +14,9 @@
     <fullyQualifiedTypeName name="javax.swing.Timer"/>
     <fullyQualifiedTypeName name="sample07.MyProgressBar.Mode"/>
     <fullyQualifiedTypeName name="sampleJFrame.Main"/>
+    <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+    <fullyQualifiedTypeName name="javazoom.jl.decoder.JavaLayerException"/>
+    <fullyQualifiedTypeName name="javax.swing.UIManager"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="sampleJFrame.FieldPanel"/>
 </qualifiedTypeNameHistroy>
