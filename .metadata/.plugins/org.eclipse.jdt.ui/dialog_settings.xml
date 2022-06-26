@@ -8,6 +8,7 @@
 	<item key="TypeHierarchyViewPart.linkeditors" value="false"/>
 	<item key="TypeHierarchyViewPart.orientation" value="3"/>
 	<item key="org.eclipse.jdt.ui.lastextjar" value="C:\Program Files\Java\jlayer-master"/>
+	<item key="ProjectSelectionDialog.show_all" value="false"/>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item key="layout" value="1"/>
 		<item key="group_libraries" value="true"/>
@@ -59,6 +60,7 @@
 			<item value="C:\Users\ko-he-\Desktop\CatCatcher.jar"/>
 		</list>
 		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">
+			<item value="C:\Users\ko-he-\Desktop\DMM\java\GUI.xml"/>
 			<item value=".xml"/>
 		</list>
 	</section>
